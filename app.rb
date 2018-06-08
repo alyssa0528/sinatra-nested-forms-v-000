@@ -1,4 +1,6 @@
 require './environment'
+require_relative 'app/models/pirate.rb'
+require_relative 'app/models/ship.rb'
 
 module FormsLab
   class App < Sinatra::Base
@@ -13,7 +15,7 @@ module FormsLab
     end
 
     post '/pirates' do
-      @pirate = Pirate.new(params[:pirate])
+      @pirate = Pirate.new(params[:pirate]) #create new pirate instance
 
       params[:pirate][:ships].each do |details|
         Ship.new(details)
